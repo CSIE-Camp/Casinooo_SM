@@ -1,15 +1,67 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Rubik&display=swap');
 
-// @property --rotate {
-//     syntax: "<angle>";
-//     initial-value: 132deg;
-//     inherits: false;
-// }
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
+}
 
+:root {
+    --slot-height: 104px;
+    --slot-width: 104px;
+}
+
+$magic_card: linear-gradient(var(--rotate), rgb(250, 196, 0), rgb(255, 161, 20) 43%, rgba(255, 0, 0, 0.51));
+$magic_reel: linear-gradient(120deg, rgb(87, 82, 61), rgb(152, 110, 47) 70%, rgba(37, 24, 24, 0.51));
 $slot_width : 104px;
 $slot_height : 104px;
 
 // color 
+@mixin text_shadow() {
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 15px #fff,
+        0 0 20px rgb(255, 0, 0),
+        0 0 35px rgb(255, 0, 0),
+        0 0 40px rgb(255, 0, 0),
+        0 0 60px rgb(255, 0, 0),
+        0 0 90px rgb(255, 0, 0);
+}
+
+@mixin magic_animation($z, $color) {
+    &::before {
+        content: "";
+        width: 104%;
+        height: 102%;
+        border-radius: 15px;
+        background-image: $color;
+        position: absolute;
+        z-index: $z;
+        top: -1%;
+        left: -2%;
+        animation: spin 2.5s linear infinite;
+    }
+
+    &::after {
+        position: absolute;
+        content: "";
+        top: calc(var(--slot-height) / 6);
+        left: 0;
+        right: 0;
+        z-index: $z;
+        height: 100%;
+        width: 100%;
+        margin: 0 auto;
+        transform: scale(0.8);
+        filter: blur(calc(var(--slot-height) / 6));
+        background-image: $color;
+        opacity: 1;
+        transition: opacity .5s;
+        animation: spin 2.5s linear infinite;
+    }
+}
+
 html,
 body {
     height: 100%;
@@ -39,113 +91,72 @@ div.all {
         color: #ffe56e;
         border-radius: 15px;
         padding: 10px 10px 10px 20px;
-        margin-bottom: 3px;
+        margin-bottom: 20px;
         box-shadow: 0 0 0 5px #d61c29;
 
         // shadow
-        text-shadow:
-            0 0 5px #fff,
-            0 0 10px #fff,
-            0 0 15px #fff,
-            0 0 20px rgb(255, 0, 0),
-            0 0 35px rgb(255, 0, 0),
-            0 0 40px rgb(255, 0, 0),
-            0 0 60px rgb(255, 0, 0),
-            0 0 90px rgb(255, 0, 0);
+        @include text_shadow();
 
-        // &::before {
-        //     content: "";
-        //     width: 104%;
-        //     height: 102%;
-        //     border-radius: 8px;
-        //     background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
-        //     position: absolute;
-        //     z-index: -1;
-        //     top: -1%;
-        //     left: -2%;
-        //     animation: spin 2.5s linear infinite;
-        // }
 
-        // &::after {
-        //     position: absolute;
-        //     content: "";
-        //     top: calc(var(--card-height) / 6);
-        //     left: 0;
-        //     right: 0;
-        //     z-index: -1;
-        //     height: 100%;
-        //     width: 100%;
-        //     margin: 0 auto;
-        //     transform: scale(0.8);
-        //     filter: blur(calc(var(--card-height) / 6));
-        //     background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
-        //     opacity: 1;
-        //     transition: opacity .5s;
-        //     animation: spin 2.5s linear infinite;
-        // }
-
-        // @keyframes spin {
-        //     0% {
-        //         --rotate: 0deg;
-        //     }
-
-        //     100% {
-        //         --rotate: 360deg;
-        //     }
-        // }
     }
 }
 
 .slot {
-    width: 4 * $slot_width;
-    height: 3 * $slot_height;
-    border: 4mm ridge rgba(237, 249, 7, 0.6);
+    position: relative;
+    width: calc(4 * var(--slot-width));
+    height: calc(3 * var(--slot-height));
+    // border: 4mm ridge rgba(237, 249, 7, 0.6);
     border-radius: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: rgba(243, 224, 157, 0.75);
-    // background: radial-gradient(circle, rgba(243, 224, 157, 1) 0%, rgba(218, 162, 80, 0.5271358543417367) 25%, rgba(248, 222, 109, 0.510329131652661) 100%); // background-image: url("../001.png");
+    // background: radial-gradient(circle, rgba(243, 224, 157, 1) 0%, rgba(218, 162, 80, 0.52) 25%,  100%);
     padding: 0.33 * $slot_width;
+
+    // animation
+    @include magic_animation(-1, $magic_card);
 
     .reel {
         position: relative;
         width: $slot_width;
         height: $slot_height * 3;
-        border: 2mm ridge rgba(139, 106, 60, 0.6);
+        border: 2px ridge rgba(139, 106, 60, 0.6);
         border-radius: 15px;
         background-image: url("../0625.png");
-        // margin-left: auto;
-        // margin-right: auto;
         background-repeat: repeat-y;
         background-position: 0 10px;
 
-        &::before,
-        &::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            width: 10px;
-            height: 2px;
-            background-color: rgba(black, 0.5);
-        }
+        // &::before,
+        // &::after {
+        //     content: "";
+        //     position: absolute;
+        //     top: 50%;
+        //     width: 10px;
+        //     height: 5px;
+        //     background-color: rgba(black, 0.5);
+        //     border-radius: 30px;
+        // }
 
-        &::before {
-            left: 0;
-            transform: translate(-200%, -50%);
-            border-radius: 100%;
-        }
+        // &::before {
+        //     left: 0;
+        //     transform: translate(-200%, -50%);
+        //     border-radius: 100%;
+        // }
 
-        &::after {
-            right: 0;
-            transform: translate(200%, -50%);
-        }
+        // &::after {
+        //     right: 0;
+        //     transform: translate(200%, -50%);
+        // }
+
+        @include magic_animation(-1, $magic_reel);
     }
 }
 
 .say {
     margin-top: 2rem;
     font-size: 2rem;
+    letter-spacing: 4px;
     padding: 8px 10px;
     background: #7a1017;
     color: white;
@@ -157,6 +168,17 @@ div.all {
         cursor: pointer;
     }
 
+    @include text_shadow();
+}
+
+@keyframes spin {
+    0% {
+        --rotate: 0deg;
+    }
+
+    100% {
+        --rotate: 360deg;
+    }
 }
 
 // &.win1 {

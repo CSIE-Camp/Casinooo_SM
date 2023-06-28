@@ -1,4 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Rubik&display=swap");
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+:root {
+  --slot-height: 104px;
+  --slot-width: 104px;
+}
+
 html,
 body {
   height: 100%;
@@ -28,15 +38,15 @@ div.all .bigwin {
   color: #ffe56e;
   border-radius: 15px;
   padding: 10px 10px 10px 20px;
-  margin-bottom: 3px;
+  margin-bottom: 20px;
   box-shadow: 0 0 0 5px #d61c29;
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px rgb(255, 0, 0), 0 0 35px rgb(255, 0, 0), 0 0 40px rgb(255, 0, 0), 0 0 60px rgb(255, 0, 0), 0 0 90px rgb(255, 0, 0);
 }
 
 .slot {
-  width: 416px;
-  height: 312px;
-  border: 4mm ridge rgba(237, 249, 7, 0.6);
+  position: relative;
+  width: calc(4 * var(--slot-width));
+  height: calc(3 * var(--slot-height));
   border-radius: 15px;
   display: flex;
   justify-content: space-between;
@@ -44,44 +54,96 @@ div.all .bigwin {
   background: rgba(243, 224, 157, 0.75);
   padding: 34.32px;
 }
+.slot::before {
+  content: "";
+  width: 104%;
+  height: 102%;
+  border-radius: 15px;
+  background-image: linear-gradient(var(--rotate), rgb(250, 196, 0), rgb(255, 161, 20) 43%, rgba(255, 0, 0, 0.51));
+  position: absolute;
+  z-index: -1;
+  top: -1%;
+  left: -2%;
+  animation: spin 2.5s linear infinite;
+}
+.slot::after {
+  position: absolute;
+  content: "";
+  top: calc(var(--slot-height) / 6);
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.8);
+  filter: blur(calc(var(--slot-height) / 6));
+  background-image: linear-gradient(var(--rotate), rgb(250, 196, 0), rgb(255, 161, 20) 43%, rgba(255, 0, 0, 0.51));
+  opacity: 1;
+  transition: opacity 0.5s;
+  animation: spin 2.5s linear infinite;
+}
 .slot .reel {
   position: relative;
   width: 104px;
   height: 312px;
-  border: 2mm ridge rgba(139, 106, 60, 0.6);
+  border: 2px ridge rgba(139, 106, 60, 0.6);
   border-radius: 15px;
   background-image: url("../0625.png");
   background-repeat: repeat-y;
   background-position: 0 10px;
 }
-.slot .reel::before, .slot .reel::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 10px;
-  height: 2px;
-  background-color: rgba(0, 0, 0, 0.5);
-}
 .slot .reel::before {
-  left: 0;
-  transform: translate(-200%, -50%);
-  border-radius: 100%;
+  content: "";
+  width: 104%;
+  height: 102%;
+  border-radius: 15px;
+  background-image: linear-gradient(120deg, rgb(87, 82, 61), rgb(152, 110, 47) 70%, rgba(37, 24, 24, 0.51));
+  position: absolute;
+  z-index: -1;
+  top: -1%;
+  left: -2%;
+  animation: spin 2.5s linear infinite;
 }
 .slot .reel::after {
+  position: absolute;
+  content: "";
+  top: calc(var(--slot-height) / 6);
+  left: 0;
   right: 0;
-  transform: translate(200%, -50%);
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.8);
+  filter: blur(calc(var(--slot-height) / 6));
+  background-image: linear-gradient(120deg, rgb(87, 82, 61), rgb(152, 110, 47) 70%, rgba(37, 24, 24, 0.51));
+  opacity: 1;
+  transition: opacity 0.5s;
+  animation: spin 2.5s linear infinite;
 }
 
 .say {
   margin-top: 2rem;
   font-size: 2rem;
+  letter-spacing: 4px;
   padding: 8px 10px;
   background: #7a1017;
   color: white;
   border: 2mm ridge rgba(252, 183, 86, 0.6);
   border-radius: 15px;
   font-family: "Noto Sans TC", sans-serif;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px rgb(255, 0, 0), 0 0 35px rgb(255, 0, 0), 0 0 40px rgb(255, 0, 0), 0 0 60px rgb(255, 0, 0), 0 0 90px rgb(255, 0, 0);
 }
 .say:hover {
   cursor: pointer;
+}
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
 }/*# sourceMappingURL=style.css.map */
