@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Rubik&display=swap");
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(255, 220, 110);
+  background: radial-gradient(circle, rgb(255, 220, 110) 0%, rgb(124, 35, 162) 25%, rgb(66, 19, 86) 100%);
+}
+
+div.all {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 312px;
+}
+div.all .bigwin {
+  font-family: "Rubik", sans-serif;
+  letter-spacing: 8px;
+  font-size: 3rem;
+  font-weight: 500;
+  background-color: #7a1017;
+  color: #ffe56e;
+  border-radius: 15px;
+  padding: 10px 10px 10px 20px;
+  margin-bottom: 3px;
+  box-shadow: 0 0 0 5px #d61c29;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px rgb(255, 0, 0), 0 0 35px rgb(255, 0, 0), 0 0 40px rgb(255, 0, 0), 0 0 60px rgb(255, 0, 0), 0 0 90px rgb(255, 0, 0);
+}
+
+.slot {
+  width: 416px;
+  height: 312px;
+  border: 4mm ridge rgba(237, 249, 7, 0.6);
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(243, 224, 157, 0.75);
+  padding: 34.32px;
+}
+.slot .reel {
+  position: relative;
+  width: 104px;
+  height: 312px;
+  border: 2mm ridge rgba(139, 106, 60, 0.6);
+  border-radius: 15px;
+  background-image: url("../0625.png");
+  background-repeat: repeat-y;
+  background-position: 0 10px;
+}
+.slot .reel::before, .slot .reel::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.slot .reel::before {
+  left: 0;
+  transform: translate(-200%, -50%);
+  border-radius: 100%;
+}
+.slot .reel::after {
+  right: 0;
+  transform: translate(200%, -50%);
+}
+
+.say {
+  margin-top: 2rem;
+  font-size: 2rem;
+  padding: 8px 10px;
+  background: #7a1017;
+  color: white;
+  border: 2mm ridge rgba(252, 183, 86, 0.6);
+  border-radius: 15px;
+  font-family: "Noto Sans TC", sans-serif;
+}
+.say:hover {
+  cursor: pointer;
+}/*# sourceMappingURL=style.css.map */
