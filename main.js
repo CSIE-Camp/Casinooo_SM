@@ -45,7 +45,9 @@ const roll = (reel, offset = 0, Mycase) => {
         break;
       case 9:
         reel.style.backgroundPositionY =`${ 104 * 0 + (1014 * randomNum)}px`;
-        break;        
+        break;
+      case 10:
+        reel.style.backgroundPositionY =`${ 104 * 4 + (1014 * randomNum)}px`;
         break;
       default:
         break;  
@@ -58,7 +60,10 @@ const roll = (reel, offset = 0, Mycase) => {
 
 function rollAll() {
   let Mycase = Math.floor(Math.random() * 10); // 0 - 9
-
+  const random_sm = Math.floor(Math.random() * 100); // 0 - 99
+  if(random_sm === 69){
+    Mycase = 10;
+  }
   const reelList = document.querySelectorAll('.slot > .reel');
   
   console.log(Mycase);
@@ -91,6 +96,9 @@ function rollAll() {
         break;
       case 9:
         document.querySelector(".say").innerHTML = "10 代幣";
+        break;
+      case 10:
+        document.querySelector(".say").innerHTML = "恭喜你觸發彩蛋";
         break;
       default:
         break;  
