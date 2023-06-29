@@ -11,7 +11,7 @@
     --slot-width: 104px;
 }
 
-$magic_card: linear-gradient(var(--rotate), rgb(250, 196, 0), rgb(255, 161, 20) 43%, rgba(255, 0, 0, 0.51));
+$magic_card: linear-gradient(var(--rotate), rgb(208, 250, 0), rgb(255, 161, 20) 36%, rgba(255, 0, 0, 0.51));
 $magic_reel: linear-gradient(120deg, rgb(87, 82, 61), rgb(152, 110, 47) 70%, rgba(37, 24, 24, 0.51));
 $slot_width : 104px;
 $slot_height : 104px;
@@ -149,7 +149,7 @@ div.all {
         //     transform: translate(200%, -50%);
         // }
 
-        @include magic_animation(-1, $magic_reel);
+        // @include magic_animation(-1, $magic_reel);
     }
 }
 

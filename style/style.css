@@ -59,7 +59,7 @@ div.all .bigwin {
   width: 104%;
   height: 102%;
   border-radius: 15px;
-  background-image: linear-gradient(var(--rotate), rgb(250, 196, 0), rgb(255, 161, 20) 43%, rgba(255, 0, 0, 0.51));
+  background-image: linear-gradient(var(--rotate), rgb(208, 250, 0), rgb(255, 161, 20) 36%, rgba(255, 0, 0, 0.51));
   position: absolute;
   z-index: -1;
   top: -1%;
@@ -78,7 +78,7 @@ div.all .bigwin {
   margin: 0 auto;
   transform: scale(0.8);
   filter: blur(calc(var(--slot-height) / 6));
-  background-image: linear-gradient(var(--rotate), rgb(250, 196, 0), rgb(255, 161, 20) 43%, rgba(255, 0, 0, 0.51));
+  background-image: linear-gradient(var(--rotate), rgb(208, 250, 0), rgb(255, 161, 20) 36%, rgba(255, 0, 0, 0.51));
   opacity: 1;
   transition: opacity 0.5s;
   animation: spin 2.5s linear infinite;
@@ -92,35 +92,6 @@ div.all .bigwin {
   background-image: url("../0629.png");
   background-repeat: repeat-y;
   background-position: 0 10px;
-}
-.slot .reel::before {
-  content: "";
-  width: 104%;
-  height: 102%;
-  border-radius: 15px;
-  background-image: linear-gradient(120deg, rgb(87, 82, 61), rgb(152, 110, 47) 70%, rgba(37, 24, 24, 0.51));
-  position: absolute;
-  z-index: -1;
-  top: -1%;
-  left: -2%;
-  animation: spin 2.5s linear infinite;
-}
-.slot .reel::after {
-  position: absolute;
-  content: "";
-  top: calc(var(--slot-height) / 6);
-  left: 0;
-  right: 0;
-  z-index: -1;
-  height: 100%;
-  width: 100%;
-  margin: 0 auto;
-  transform: scale(0.8);
-  filter: blur(calc(var(--slot-height) / 6));
-  background-image: linear-gradient(120deg, rgb(87, 82, 61), rgb(152, 110, 47) 70%, rgba(37, 24, 24, 0.51));
-  opacity: 1;
-  transition: opacity 0.5s;
-  animation: spin 2.5s linear infinite;
 }
 
 .say {
