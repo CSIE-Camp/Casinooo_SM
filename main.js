@@ -4,6 +4,7 @@ const num_icons = 5;
 const time_per_icon = 500;
 // let Mycase = Math.floor(Math.random() * 10); // 0 - 9
 const randomNum = Math.floor(Math.random() * 8) + 2;
+
 const roll = (reel, offset = 0, Mycase) => {
   const delta = 2 * Math.floor(Math.random() * 10);
   const style = getComputedStyle(reel),
@@ -14,6 +15,7 @@ const roll = (reel, offset = 0, Mycase) => {
     
     switch (Mycase){
       case 0:
+      case 1:
         if(offset == 0){
           reel.style.backgroundPositionY =`${ 104 * 6 + (1014 * randomNum)}px`;
         }
@@ -21,9 +23,9 @@ const roll = (reel, offset = 0, Mycase) => {
           reel.style.backgroundPositionY =`${ 104 * 4 + (1014 * randomNum)}px`;
         }
         break;
-      case 1:
       case 2:
       case 3:
+      case 4:
         if(offset == 0 || offset == 1){
           reel.style.backgroundPositionY =`${ 104 * 6 + (1014 * randomNum)}px`;
         }
@@ -31,7 +33,6 @@ const roll = (reel, offset = 0, Mycase) => {
           reel.style.backgroundPositionY =`${ 104 * 4 + (1014 * randomNum)}px`;
         }
         break;
-      case 4:
       case 5:
       case 6:
         reel.style.backgroundPositionY =`${ 104 * 6 + (1014 * randomNum)}px`;
@@ -86,10 +87,10 @@ function rollAll() {
         document.querySelector(".say").innerHTML = "5 代幣";
         break;
       case 8:
-        document.querySelector(".say").innerHTML = "10 代幣";
+        document.querySelector(".say").innerHTML = "7 代幣";
         break;
       case 9:
-        document.querySelector(".say").innerHTML = "15 代幣";
+        document.querySelector(".say").innerHTML = "10 代幣";
         break;
       default:
         break;  
