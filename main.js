@@ -15,8 +15,15 @@ const roll = (reel, offset = 0, Mycase) => {
     
     switch (Mycase){
       case 0:
-      case 1:
         if(offset == 0){
+          reel.style.backgroundPositionY =`${ 104 * 6 + (1014 * randomNum)}px`;
+        }
+        else {
+          reel.style.backgroundPositionY =`${ 104 * 4 + (1014 * randomNum)}px`;
+        }
+        break;
+      case 1:
+        if(offset == 0 || offset == 1){
           reel.style.backgroundPositionY =`${ 104 * 6 + (1014 * randomNum)}px`;
         }
         else {
@@ -25,18 +32,11 @@ const roll = (reel, offset = 0, Mycase) => {
         break;
       case 2:
       case 3:
-        if(offset == 0 || offset == 1){
-          reel.style.backgroundPositionY =`${ 104 * 6 + (1014 * randomNum)}px`;
-        }
-        else {
-          reel.style.backgroundPositionY =`${ 104 * 4 + (1014 * randomNum)}px`;
-        }
-        break;
       case 4:
-      case 5:
-      case 6:
         reel.style.backgroundPositionY =`${ 104 * 6 + (1014 * randomNum)}px`;
         break;
+      case 5:
+      case 6:
       case 7:
         reel.style.backgroundPositionY =`${ 104 * 8 + (1014 * randomNum)}px`;
         break;
@@ -61,7 +61,7 @@ const roll = (reel, offset = 0, Mycase) => {
 function rollAll() {
   let Mycase = Math.floor(Math.random() * 10); // 0 - 9
   const random_sm = Math.floor(Math.random() * 100); // 0 - 99
-  if(random_sm ===99 || random_sm === 69){
+  if(random_sm ===99 || random_sm === 69 || random_sm === 89){
     Mycase = 10;
   }
   const reelList = document.querySelectorAll('.slot > .reel');
@@ -76,18 +76,18 @@ function rollAll() {
     
     switch (Mycase){
       case 0:
-      case 1:
         document.querySelector(".say").innerHTML = "-2 代幣";
+        break;
+      case 1:
+        document.querySelector(".say").innerHTML = "-1 代幣";
         break;
       case 2:
       case 3:
-        document.querySelector(".say").innerHTML = "-1 代幣";
-        break;
       case 4:
-      case 5:
-      case 6:
         document.querySelector(".say").innerHTML = "+1 代幣";
         break;
+      case 5:
+      case 6:
       case 7:
         document.querySelector(".say").innerHTML = "+3 代幣";
         break;
