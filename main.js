@@ -61,7 +61,7 @@ const roll = (reel, offset = 0, Mycase) => {
 function rollAll() {
   let Mycase = Math.floor(Math.random() * 10); // 0 - 9
   const random_sm = Math.floor(Math.random() * 100); // 0 - 99
-  if(random_sm === 69){
+  if(random_sm ===99 || random_sm === 69){
     Mycase = 10;
   }
   const reelList = document.querySelectorAll('.slot > .reel');
@@ -98,7 +98,7 @@ function rollAll() {
         document.querySelector(".say").innerHTML = "10 代幣";
         break;
       case 10:
-        document.querySelector(".say").innerHTML = "恭喜你觸發彩蛋";
+        document.querySelector(".say").innerHTML = "恭喜你觸發彩蛋 (1pt)";
         break;
       default:
         break;  
