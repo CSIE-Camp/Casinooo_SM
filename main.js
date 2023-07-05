@@ -25,7 +25,6 @@ const roll = (reel, offset = 0, Mycase) => {
         break;
       case 2:
       case 3:
-      case 4:
         if(offset == 0 || offset == 1){
           reel.style.backgroundPositionY =`${ 104 * 6 + (1014 * randomNum)}px`;
         }
@@ -33,6 +32,7 @@ const roll = (reel, offset = 0, Mycase) => {
           reel.style.backgroundPositionY =`${ 104 * 4 + (1014 * randomNum)}px`;
         }
         break;
+      case 4:
       case 5:
       case 6:
         reel.style.backgroundPositionY =`${ 104 * 6 + (1014 * randomNum)}px`;
@@ -77,25 +77,25 @@ function rollAll() {
     switch (Mycase){
       case 0:
       case 1:
-        document.querySelector(".say").innerHTML = "0 代幣";
+        document.querySelector(".say").innerHTML = "-2 代幣";
         break;
       case 2:
       case 3:
-      case 4:
-        document.querySelector(".say").innerHTML = "1 代幣";
+        document.querySelector(".say").innerHTML = "-1 代幣";
         break;
+      case 4:
       case 5:
       case 6:
-        document.querySelector(".say").innerHTML = "3 代幣";
+        document.querySelector(".say").innerHTML = "+1 代幣";
         break;
       case 7:
-        document.querySelector(".say").innerHTML = "5 代幣";
+        document.querySelector(".say").innerHTML = "+3 代幣";
         break;
       case 8:
-        document.querySelector(".say").innerHTML = "7 代幣";
+        document.querySelector(".say").innerHTML = "+5 代幣";
         break;
       case 9:
-        document.querySelector(".say").innerHTML = "10 代幣";
+        document.querySelector(".say").innerHTML = "+8 代幣";
         break;
       case 10:
         document.querySelector(".say").innerHTML = "恭喜你觸發彩蛋 (1pt)";
