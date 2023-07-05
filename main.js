@@ -76,10 +76,10 @@ function rollAll() {
     
     switch (Mycase){
       case 0:
-        document.querySelector(".say").innerHTML = "+2 代幣";
+        document.querySelector(".say").innerHTML = "-2 代幣";
         break;
       case 1:
-        document.querySelector(".say").innerHTML = "+4 代幣";
+        document.querySelector(".say").innerHTML = "-10 代幣";
         break;
       case 2:
       case 3:
