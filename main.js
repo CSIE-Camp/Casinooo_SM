@@ -3,15 +3,16 @@ const icon_height = 104;
 const num_icons = 5;
 const time_per_icon = 500;
 // let Mycase = Math.floor(Math.random() * 10); // 0 - 9
-const randomNum = Math.floor(Math.random() * 8) + 2;
+const randomNum = Math.floor(Math.random() * 5) + 4;
 
 const roll = (reel, offset = 0, Mycase) => {
   const delta = 2 * Math.floor(Math.random() * 10);
-  const style = getComputedStyle(reel),
-  backgroundPositionY = parseFloat(style["background-position-y"]);
+  const style = getComputedStyle(reel);
+  //const backgroundPositionY = parseFloat(style["background-position-y"]);
+  // console.log(backgroundPositionY);
   return new Promise((resolve, reject) =>{
     // console.log("123:" + offset);
-    reel.style.transition = `background-position-y ${8 + delta * time_per_icon}ms`;
+    reel.style.transition = `background-position-y ${8 + delta * time_per_icon}ms cubic-bezier(.41,-0.01,.63,1.09)`;
     
     switch (Mycase){
       case 0:
@@ -64,7 +65,7 @@ function rollAll() {
   if(random_sm ===99 || random_sm === 69 || random_sm === 89 || random_sm === 79){
     Mycase = 10;
   }
-  const reelList = document.querySelectorAll('.slot > .reel');
+  const reelList = document.querySelectorAll('.slot > .bor_reel > .reel');
   
   console.log(Mycase);
   
@@ -73,42 +74,42 @@ function rollAll() {
   Promise
   .all(  [...reelList].map((reel, i) => roll(reel, i, Mycase)))
   .then((delta) => {
-    
+    let money = 0;
     switch (Mycase){
       case 0:
-        document.querySelector(".say").innerHTML = "-2 代幣";
+        money = "-2 代幣";
         break;
       case 1:
-        document.querySelector(".say").innerHTML = "-10 代幣";
+        money = "-10 代幣";
         break;
       case 2:
       case 3:
       case 4:
-        document.querySelector(".say").innerHTML = "+1 代幣";
+        money = "+1 代幣";
         break;
       case 5:
       case 6:
       case 7:
-        document.querySelector(".say").innerHTML = "+3 代幣";
+        money = "+3 代幣";
         break;
       case 8:
-        document.querySelector(".say").innerHTML = "+5 代幣";
+        money =  "+5 代幣";
         break;
       case 9:
-        document.querySelector(".say").innerHTML = "+8 代幣";
+        money = "+8 代幣";
         break;
       case 10:
-        document.querySelector(".say").innerHTML = "彩蛋!!(+1pt)";
+        money = "彩蛋!!(+1pt)";
         break;
       default:
         break;  
     }
-    
+    document.querySelector(".say").innerHTML = money; 
   })
 }
-
-
-rollAll();
+const start_btn = document.querySelector('.say').addEventListener("click", () => {
+  setTimeout("rollAll()", 500) ;
+})
 
 // const start = document.querySelector(".say");
 //     start.addEventListener("click", function(e){

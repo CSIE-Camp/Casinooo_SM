@@ -21,6 +21,44 @@ body {
   background: rgb(255, 220, 110);
   background: radial-gradient(circle, rgb(255, 220, 110) 0%, rgb(124, 35, 162) 25%, rgb(66, 19, 86) 100%);
 }
+body.win1 {
+  animation: win1 200ms steps(2, end) infinite;
+}
+body.win2 {
+  animation: win1 200ms steps(2, end) infinite;
+}
+
+.all_home {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn_home {
+  height: 100%;
+  font-size: 2rem;
+  font-weight: 900;
+  background-color: #e1f320;
+  border-radius: 15px;
+  padding: 10px 10px 10px 10px;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 0 5px #d61c29;
+  text-shadow: 1px 1px white, -1px -1px #444;
+  -webkit-user-select: all;
+     -moz-user-select: all;
+          user-select: all;
+  transition: all 0.1s ease;
+}
+.btn_home:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+a {
+  width: 100%;
+  text-decoration: none;
+  color: white;
+  list-style: none;
+}
 
 div.all {
   display: flex;
@@ -28,6 +66,19 @@ div.all {
   justify-content: center;
   align-items: center;
   height: 312px;
+}
+div.all .score {
+  font-family: "Rubik", sans-serif;
+  letter-spacing: 8px;
+  font-size: 1.5rem;
+  font-weight: 400;
+  background-color: #7a1017;
+  color: #ffe56e;
+  border-radius: 15px;
+  padding: 10px 10px 10px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 0 5px #d61c29;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px rgb(255, 0, 0), 0 0 35px rgb(255, 0, 0), 0 0 40px rgb(255, 0, 0), 0 0 60px rgb(255, 0, 0), 0 0 90px rgb(255, 0, 0);
 }
 div.all .bigwin {
   font-family: "Rubik", sans-serif;
@@ -51,7 +102,7 @@ div.all .bigwin {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(243, 224, 157, 0.75);
+  background: #2d052d;
   padding: 34.32px;
 }
 .slot::before {
@@ -83,12 +134,14 @@ div.all .bigwin {
   transition: opacity 0.5s;
   animation: spin 2.5s linear infinite;
 }
-.slot .reel {
+.slot .bor_reel {
+  border: 3px dashed #e4e256;
+  border-radius: 15px;
+}
+.slot .bor_reel .reel {
   position: relative;
   width: 104px;
   height: 312px;
-  border: 2px ridge rgba(139, 106, 60, 0.6);
-  border-radius: 15px;
   background-image: url("../0629.png");
   background-repeat: repeat-y;
   background-position: 0 10px;
@@ -116,5 +169,25 @@ div.all .bigwin {
   }
   100% {
     --rotate: 360deg;
+  }
+}
+@keyframes win1 {
+  0% {
+    background: linear-gradient(45deg, orange 0%, yellow 100%);
+    box-shadow: 0 0 80px orange;
+  }
+  100% {
+    background: linear-gradient(45deg, grey 0%, lightgrey 100%);
+    box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.3);
+  }
+}
+@keyframes win2 {
+  0% {
+    background: linear-gradient(45deg, lightblue 0%, lightgreen 100%);
+    box-shadow: 0 0 80px lightgreen;
+  }
+  100% {
+    background: linear-gradient(45deg, grey 0%, lightgrey 100%);
+    box-shadow: -2px 2px 3px rgba(0, 0, 0, 0.3);
   }
 }/*# sourceMappingURL=style.css.map */
