@@ -43,9 +43,6 @@ body.win2 {
   margin-bottom: 2rem;
   box-shadow: 0 0 0 5px #d61c29;
   text-shadow: 1px 1px white, -1px -1px #444;
-  -webkit-user-select: all;
-     -moz-user-select: all;
-          user-select: all;
   transition: all 0.1s ease;
 }
 .btn_home:hover {
@@ -56,8 +53,7 @@ body.win2 {
 a {
   width: 100%;
   text-decoration: none;
-  color: white;
-  list-style: none;
+  color: black;
 }
 
 div.all {
