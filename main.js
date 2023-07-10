@@ -8,7 +8,9 @@ const randomNum = Math.floor(Math.random() * 5) + 4;
 const roll = (reel, offset = 0, Mycase) => {
   const delta = 2 * Math.floor(Math.random() * 10);
   const style = getComputedStyle(reel);
-  //const backgroundPositionY = parseFloat(style["background-position-y"]);
+  const bgPosY = parseFloat(style["background-position-y"]);
+  const tarBgPosY = bgPosY + delta * icon_height;
+  const normTarBgPosY = tarBgPosY % bgPosY * (num_icons * icon_height); 
   // console.log(backgroundPositionY);
   return new Promise((resolve, reject) =>{
     // console.log("123:" + offset);
@@ -54,7 +56,9 @@ const roll = (reel, offset = 0, Mycase) => {
         break;  
     }
     setTimeout(() => {
-      resolve(delta)
+      reel.style.transition = `none`;
+			// reel.style.backgroundPositionY = `${normTarBgPosY}px`;
+      resolve(delta % num_icons)
     }, 8 + delta * time_per_icon)
   })
 };
@@ -93,7 +97,7 @@ function rollAll() {
         money = "+3 代幣";
         break;
       case 8:
-        money =  "+5 代幣";
+        money = "+5 代幣";
         break;
       case 9:
         money = "+8 代幣";
@@ -107,9 +111,22 @@ function rollAll() {
     document.querySelector(".say").innerHTML = money; 
   })
 }
+
+function init_slot(){
+  const reelList = document.querySelectorAll('.slot > .bor_reel > .reel');
+  document.querySelector(".say").innerHTML = "點我開始";
+  [...reelList].map((reel) => {
+    reel.style.backgroundPositionY = 0;
+  });
+
+}
+
 const start_btn = document.querySelector('.say');
-btn.addEventListener("click", () => {
-  setTimeout("rollAll()", 500) ;
+start_btn.addEventListener("click", (e) => {
+  init_slot();
+  document.querySelector(".say").innerHTML = "請稍候...";
+  console.log(e.target);
+  setTimeout("rollAll()", 0);
 })
 
 // const start = document.querySelector(".say");

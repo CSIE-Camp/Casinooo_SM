@@ -31,9 +31,15 @@ body.win2 {
 .all_home {
   display: flex;
   flex-direction: column;
+  width: 50vw;
 }
-
-.btn_home {
+.all_home a {
+  width: 100%;
+  text-decoration: none;
+  color: black;
+}
+.all_home a .btn_home {
+  text-align: center;
   height: 100%;
   font-size: 2rem;
   font-weight: 900;
@@ -45,15 +51,9 @@ body.win2 {
   text-shadow: 1px 1px white, -1px -1px #444;
   transition: all 0.1s ease;
 }
-.btn_home:hover {
+.all_home a .btn_home:hover {
   cursor: pointer;
   transform: scale(1.2);
-}
-
-a {
-  width: 100%;
-  text-decoration: none;
-  color: black;
 }
 
 div.all {

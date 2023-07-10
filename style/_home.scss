@@ -1,31 +1,35 @@
 .all_home {
     display: flex;
     flex-direction: column;
-}
+    width: 50vw;
+    // height: 100%;
 
-.btn_home {
-    height: 100%;
-    font-size: 2rem;
-    font-weight: 900;
-    background-color: #e1f320;
-    // color: #ffe56e;
-    border-radius: 15px;
-    padding: 10px 10px 10px 10px;
-    margin-bottom: 2rem;
-    box-shadow: 0 0 0 5px #d61c29;
-    // shadow
-    text-shadow: 1px 1px white, -1px -1px #444;
+    a {
+        width: 100%;
 
-    &:hover {
-        cursor: pointer;
-        transform: scale(1.2);
+        text-decoration: none;
+        color: black;
+
+        .btn_home {
+            text-align: center;
+            height: 100%;
+            font-size: 2rem;
+            font-weight: 900;
+            background-color: #e1f320;
+            // color: #ffe56e;
+            border-radius: 15px;
+            padding: 10px 10px 10px 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 0 5px #d61c29;
+            // shadow
+            text-shadow: 1px 1px white, -1px -1px #444;
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.2);
+            }
+
+            transition: all 0.1s ease;
+        }
     }
-
-    transition: all 0.1s ease;
-}
-
-a {
-    width: 100%;
-    text-decoration: none;
-    color: black;
 }
