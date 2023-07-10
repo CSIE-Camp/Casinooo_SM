@@ -25,7 +25,7 @@ body.win1 {
   animation: win1 200ms steps(2, end) infinite;
 }
 body.win2 {
-  animation: win1 200ms steps(2, end) infinite;
+  animation: win2 200ms steps(2, end) infinite;
 }
 
 .all_home {

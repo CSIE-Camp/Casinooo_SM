@@ -78,38 +78,44 @@ function rollAll() {
   Promise
   .all(  [...reelList].map((reel, i) => roll(reel, i, Mycase)))
   .then((delta) => {
-    let money = 0;
+    let money_str = 0;
     switch (Mycase){
       case 0:
-        money = "-2 代幣";
+        money_str = "-2 代幣";
         break;
       case 1:
-        money = "-10 代幣";
+        money_str = "-10 代幣";
         break;
       case 2:
       case 3:
       case 4:
-        money = "+1 代幣";
+        money_str = "+1 代幣";
         break;
       case 5:
       case 6:
       case 7:
-        money = "+3 代幣";
+        money_str = "+3 代幣";
         break;
       case 8:
-        money = "+5 代幣";
+        money_str = "+5 代幣";
         break;
       case 9:
-        money = "+8 代幣";
+        money_str = "+8 代幣";
         break;
       case 10:
-        money = "彩蛋!!(+1pt)";
+        money_str = "彩蛋!!(+1pt)";
         break;
       default:
         break;  
     }
-    document.querySelector(".say").innerHTML = money; 
+    document.querySelector(".say").innerHTML = money_str;
+    const body_animation = document.querySelector('body');
+    body_animation.classList.add("win2");
+    setTimeout(() =>{
+      body_animation.classList.remove("win2");
+    }, 2500);
   })
+
 }
 
 function init_slot(){
@@ -125,7 +131,8 @@ const start_btn = document.querySelector('.say');
 start_btn.addEventListener("click", (e) => {
   init_slot();
   document.querySelector(".say").innerHTML = "請稍候...";
-  console.log(e.target);
+
+  // console.log(e.target);
   setTimeout("rollAll()", 0);
 })
 
