@@ -107,7 +107,8 @@ function rollAll() {
     document.querySelector(".say").innerHTML = money; 
   })
 }
-const start_btn = document.querySelector('.say').addEventListener("click", () => {
+const start_btn = document.querySelector('.say');
+btn.addEventListener("click", () => {
   setTimeout("rollAll()", 500) ;
 })
 
